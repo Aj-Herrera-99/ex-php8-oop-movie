@@ -1,41 +1,13 @@
 <?php
 
-class Genre
-{
-    public $name;
+require_once './Traits/HasDirector.php';
+require_once './Models/Genre.php';
+require_once './Models/Movie.php';
+require_once './db.php';
 
-    function __construct($_name)
-    {
-        $this->name = $_name;
-    }
-}
+$movies[0]->setDirector('John Lasseter');
 
-class Movie
-{
-    public $title;
-    public $year;
-    public $country;
-    public $genre;
-
-    function __construct($_title, $_year, $_country, Genre $_genre)
-    {
-        $this->title = $_title;
-        $this->year = $_year;
-        $this->country = $_country;
-        $this->genre = $_genre;
-    }
-
-    public function getTitle(){
-        return $this->title;
-    }
-}
-
-$toy_story = new Movie("Toy Story", 1995, "USA", new Genre("animation"));
-$harry_potter = new Movie("Harry Potter and the Philosopher's Stone", 2001, "USA", new Genre("fantasy"));
-
-var_dump($toy_story);
-var_dump($harry_potter);
-echo $toy_story->getTitle();
+var_dump($movies);
 
 ?>
 
